@@ -24,9 +24,10 @@ class Budget:
       return True
     
 
-  def transfer(self, amount):
+  def transfer(self, amount, category):
     if self.get_balance(amount) == True:
       self.amount -= amount
+      category.amount += amount
       return "You have transferred from one category to another"
     else:
       return "You have insufficient balance"  
@@ -41,7 +42,7 @@ category_1 = Budget("food")
 print("This is a deposit for food", category.deposit(1000))
 print(category_1.get_balance(400))
 
-transfer = category_1.transfer(600)
+print(category_1.transfer(600, category))
 
 
 
